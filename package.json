@@ -1,0 +1,23 @@
+{
+  "name": "websockets101",
+  "version": "1.0.0",
+  "main": "server/app.js",
+  "description": "Basic websocket example",
+  "license": "ISC",
+  "repository": {
+    "url": ""
+  },
+  "scripts": {
+    "dev": "nodemon server/app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "passport": "^0.4.1",
+    "passport-ldapauth": "^2.1.4",
+    "passport-local": "^1.0.0",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
