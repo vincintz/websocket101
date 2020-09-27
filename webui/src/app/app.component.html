@@ -1,26 +1,4 @@
-
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <ul ngbNav #nav="ngbNav" class="nav-tabs">
-        <li ngbNavItem>
-          <a ngbNavLink>First</a>
-          <ng-template ngbNavContent>First content</ng-template>
-        </li>
-        <li ngbNavItem>
-          <a ngbNavLink>Second</a>
-          <ng-template ngbNavContent>Second content</ng-template>
-        </li>
-      </ul>
-      <div [ngbNavOutlet]="nav"></div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">Hello</div>
-    <div class="col">World</div>
-  </div>
-  <div class="row">
-    <div class="col">123</div>
-  </div>
-
+  <app-header></app-header>
+  <router-outlet></router-outlet>
 </div>
