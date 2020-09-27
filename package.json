@@ -8,7 +8,7 @@
     "url": "https://github.com/vincintz/websocket101"
   },
   "scripts": {
-    "dev": "nodemon server/app.js"
+    "dev": "nodemon server.js"
   },
   "dependencies": {
     "express": "^4.17.1",
