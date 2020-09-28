@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { ConsoleComponent } from './components/pages/console/console.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { HomeComponent } from './components/pages/home/home.component';
+import { ConsoleService } from './services/console.service'
+import { WebsocketService } from './services/websocket.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,15 @@ import { HomeComponent } from './components/pages/home/home.component';
     HomeComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
+    FormsModule,
     NgbModule
   ],
-  providers: [],
+  providers: [
+    ConsoleService,
+    WebsocketService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
