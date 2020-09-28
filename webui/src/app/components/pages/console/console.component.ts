@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConsoleSocketService } from 'src/app/services/console-socket.service';
 
 @Component({
   selector: 'app-console',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsoleComponent implements OnInit {
 
-  constructor() { }
+  constructor(private consoleService: ConsoleSocketService) { }
 
   ngOnInit(): void {
   }
