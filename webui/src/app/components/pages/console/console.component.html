@@ -2,14 +2,17 @@
   <div class="col">
     <div class="btn-group mr-3">
       <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-        <button class="btn btn-outline-primary" ngbDropdownToggle>Select Action</button>
+        <button class="btn btn-outline-secondary" ngbDropdownToggle> {{ selectedCommand ? selectedCommand.name : 'Choose an action' }} </button>
         <div class="dropdown-menu" ngbDropdownMenu>
-          <button ngbDropdownItem>One</button>
-          <button ngbDropdownItem>Two</button>
-          <button ngbDropdownItem>Four!</button>
+          <button
+              ngbDropdownItem
+              *ngFor="let command of commands"
+              (click)="changeSelection(command)">
+            {{ command.name }} <pre>{{ command.action }}</pre>
+          </button>
         </div>
       </div>
-      <button type="button" (click)="sendMessage()" class="btn btn-outline-success">
+      <button type="button" (click)="execSelectedCommand()" class="btn btn-outline-success">
         Go
       </button>
     </div>

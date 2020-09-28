@@ -13,19 +13,18 @@ export class WebsocketService {
     this.socket = io(environment.ws_url);
 
     let observable = new Observable(observer => {
-        this.socket.on('message', (data) => {
-          console.log("Received message from Websocket Server")
-          observer.next(data);
-        })
-        return () => {
-          this.socket.disconnect();
-        }
+      this.socket.on('message', (data) => {
+        observer.next(data);
+      })
+      return () => {
+        this.socket.disconnect();
+      }
     });
 
     let observer = {
-        next: (data: Object) => {
-            this.socket.emit('message', JSON.stringify(data));
-        },
+      next: (data: Object) => {
+          this.socket.emit('message', JSON.stringify(data));
+      },
     };
 
     return Subject.create(observer, observable);

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ConsoleService } from 'src/app/services/console.service';
+import { Component, OnInit } from '@angular/core'
+import { Command } from 'src/app/model/Command'
+import { ConsoleService } from 'src/app/services/console.service'
 
 @Component({
   selector: 'app-console',
@@ -7,7 +8,9 @@ import { ConsoleService } from 'src/app/services/console.service';
   styleUrls: ['./console.component.css']
 })
 export class ConsoleComponent implements OnInit {
-  output: string = "";
+  output: string = ""
+  commands: Command[]
+  selectedCommand: Command = null
 
   constructor(private consoleService: ConsoleService) { }
 
@@ -19,9 +22,20 @@ export class ConsoleComponent implements OnInit {
     this.consoleService.messages.subscribe(msg => {
       this.output += `${msg.text}\n`
     })
+    this.consoleService.getCommands().subscribe(commands => {
+      this.commands = commands
+    })
   }
-  sendMessage() {
-    this.consoleService.sendMsg("Test message")
+  execSelectedCommand() {
+    if (this.selectedCommand) {
+      this.consoleService.execCommand(this.selectedCommand)
+    }
+    else {
+      alert('No command selected')
+    }
+  }
+  changeSelection(command: Command) {
+    this.selectedCommand = command
   }
 
 }

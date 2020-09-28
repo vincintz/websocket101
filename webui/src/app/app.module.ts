@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ConsoleComponent } from './components/pages/console/console.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { HomeComponent } from './components/pages/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 import { ConsoleService } from './services/console.service'
 import { WebsocketService } from './services/websocket.service';
 import { FormsModule } from '@angular/forms';
@@ -22,6 +23,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     NgbModule
   ],
   providers: [

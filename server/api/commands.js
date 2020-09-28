@@ -3,8 +3,8 @@ const router = express.Router();
 
 let commands = [
     { id: 0, name: "List All", action: "ls -la" },
-    { id: 1, name: "Process List", acion: "ps -ef" },
-    { id: 3, name: "TOP", acion: "top" },
+    { id: 1, name: "Process List", action: "ps -ef" },
+    { id: 3, name: "TOP", action: "top" },
 ];
 let next_id = commands.length;
 
