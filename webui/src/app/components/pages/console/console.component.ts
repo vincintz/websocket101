@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core'
 import { Command } from 'src/app/model/Command'
 import { ConsoleService } from 'src/app/services/console.service'
 
+const TD = new TextDecoder()
+
 @Component({
   selector: 'app-console',
   templateUrl: './console.component.html',
@@ -20,7 +22,9 @@ export class ConsoleComponent implements OnInit {
 
   ngOnInit(): void {
     this.consoleService.messages.subscribe(msg => {
-      this.output += `${msg.text}\n`
+      if (msg.type === 'new-message') {
+        this.output = String.fromCharCode.apply(null, new Int8Array(msg.text))
+      }
     })
     this.consoleService.getCommands().subscribe(commands => {
       this.commands = commands
