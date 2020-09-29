@@ -1,7 +1,12 @@
 <div class="row">
   <div class="col">
+    <textarea class="form-control" name="output" [(ngModel)]="output" id="outputAreas" rows="3" readonly></textarea>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
     <div class="btn-group mr-3">
-      <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+      <div class="btn-group" ngbDropdown role="group" aria-label="Select action" style="width: 200px;">
         <button class="btn btn-outline-secondary" ngbDropdownToggle> {{ selectedCommand ? selectedCommand.name : 'Choose an action' }} </button>
         <div class="dropdown-menu" ngbDropdownMenu>
           <button
@@ -15,14 +20,6 @@
       <button type="button" (click)="execSelectedCommand()" class="btn btn-outline-success">
         Go
       </button>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col">
-    <div class="form-group">
-      <label for="outputAreas">Output</label>
-      <textarea class="form-control" name="output" [(ngModel)]="output" id="outputAreas" rows="3"></textarea>
     </div>
   </div>
 </div>
